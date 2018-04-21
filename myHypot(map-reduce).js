@@ -18,13 +18,14 @@ magnitude([2, 3, 6, 1, 8]) ➞ 10.677078252031311
 //var magnitude = vector => //code goes here
 
 function myHypot(vector) {
-    let squares = vector.map(function (val) {
-        return val * val;
-    });
-    let sumOfSquares = squares.reduce(function (a, b) {
-        return a + b;
-    }, 0);
-    return Math.sqrt(sumOfSquares);
+    return vector.length !== 0
+        ? Math.sqrt(vector.map(function (val) {
+                return val * val;
+            }).reduce(function (a, b) {
+                return a + b;
+            })
+        )
+        : 0;
 }
 
 console.log(myHypot([0, 0, 4, 5]));
